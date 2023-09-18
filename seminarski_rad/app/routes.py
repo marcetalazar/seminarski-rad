@@ -68,4 +68,6 @@ def profile():
 @app.route('/edit_profile',methods=['GET','POST'])
 def edit_profile():
     form=EditProfileForm()
+    if form.validate_on_submit():
+        pass
     return render_template('edit_profile.html',title='Edit profile') 
