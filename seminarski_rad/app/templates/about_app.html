@@ -1,0 +1,20 @@
+{% extends 'header.html' %}
+
+{%block content%}
+<h2>PyFloraPosude aplikacija<br>
+Seminarski se rad sastoji od izrade GUI aplikacije za praćenje stanja ukrasnih i/ili začinskih
+biljaka koje su posađene u posude s integriranim senzorima za mjerenje:<br>
+- vlažnosti zemlje<br>
+- pH vrijednosti i saliniteta zemlje<br>
+- razine svjetla koje dopire do biljke.<br>
+Posude sa senzora u aplikaciju šalju mjerenja preko integrirane Bluetooth veze.<br>
+Osim navedenih podataka o kvaliteti zemlje u posudi ili vrtu, potrebno je voditi računa o
+temperaturi zraka u prostoriji ili na otvorenom (terasa ili mali vrt).<br>
+Vrijednosti očitane sa svih senzora, simulirajte tako što ćete ih generirati u zasebnoj Python
+skripti koja će se pokretati svaki puta kada korisnik pritisne gumb „Sync“ (više detalja u primjeru
+sučelja aplikacije).<br>
+Dodatna vrijednost koju treba čuvati je temperatura zraka, koju ćete preuzeti s Meteo stanice
+u Algebrinom kampusu (Zagreb, Črnomerec) preko Web API usluge. Ukoliko Web API usluga
+na Meteo stanici iz bilo kojeg razloga bude nedostupna, osigurajte zamjensku opciju
+generiranjem ovih podataka unutar spomenute skripte.<br>
+{%endblock%}

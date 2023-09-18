@@ -1,0 +1,80 @@
+{% extends "header.html" %}
+
+{% block content %}
+<section style="background-color: #eee;">
+    <div class="container py-5">
+      
+  
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src="{{ avatars.robohash(current_user.name) }}"  alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3">{{current_user.name}}</h5>
+              <h6 class="my-3">random slika</h6>
+              
+
+            
+            </div>
+          </div>
+        
+        </div>
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Full Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{current_user.name}} {{current_user.last_name}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                 <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                    {%if current_user.email%}<p class="mb-0">{{current_user.email}}
+                    {%else%}
+                <p class="text-muted mb-0">nema informacija</p>
+                    {%endif%}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                    {%if current_user.email%}<p class="mb-0">{{current_user.email}}
+                        {%else%}
+                    <p class="text-muted mb-0">nema informacija</p>
+                        {%endif%}
+                </div>
+              </div>
+            
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Address</p>
+                </div>
+                <div class="col-sm-9">
+                    {%if current_user.address%}<p class="mb-0">{{current_user.address}}
+                        {%else%}
+                    <p class="text-muted mb-0">nema informacija</p>
+                        {%endif%}
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a href="{{url_for('edit_profile')}}"><button type="button" class="btn btn-success">Change your information</button></a>
+        
+      </div>
+    </div>
+  </section>
+
+{%endblock%}
