@@ -9,6 +9,8 @@ class User(UserMixin, db.Model):
     name=db.Column(db.String(64), index=True)
     last_name=db.Column(db.String(64), index=True)
     username=db.Column(db.String(64), index=True, unique=True)
+    email=db.Column(db.String(64), index=True, unique=True)
+    phone=db.Column(db.Integer)
     password_hash = db.Column(db.String(128))
     user_plants= db.relationship('Plant', backref='grower', lazy='dynamic')
     

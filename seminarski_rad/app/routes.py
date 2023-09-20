@@ -39,7 +39,7 @@ def sign_in():
 def register_user():
     form=RegistrationForm()
     if form.validate_on_submit():
-        user=User(name=form.name.data.capitalize(),last_name=form.last_name.data.capitalize(),username=form.username.data)
+        user=User(name=form.name.data.capitalize(),last_name=form.last_name.data.capitalize(),username=form.username.data,email=form.email.data,phone=form.phone.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -70,4 +70,4 @@ def edit_profile():
     form=EditProfileForm()
     if form.validate_on_submit():
         pass
-    return render_template('edit_profile.html',title='Edit profile') 
+    return render_template('edit_profile.html',title='Edit profile',form=form) 
