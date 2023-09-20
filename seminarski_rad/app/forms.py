@@ -29,5 +29,8 @@ class RegistrationForm(FlaskForm):
     
 class EditProfileForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
-    last_name = StringField('Last name', validators=[DataRequired()]) 
-    submit = SubmitField('Register')
+    last_name = StringField('Last name', validators=[DataRequired()])
+    username = StringField('Username', validators=[DataRequired()])
+    email=StringField('Email', validators=[DataRequired()])
+    phone=StringField('phone', validators=[DataRequired()]) 
+    submit = SubmitField('Edit')

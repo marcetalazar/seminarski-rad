@@ -2,7 +2,7 @@ from app import app,db
 from flask import render_template, flash, redirect, url_for, request
 from app.forms import LoginForm,RegistrationForm, EditProfileForm
 from app.models import User
-from flask_login import login_user,current_user,logout_user
+from flask_login import login_user,current_user,logout_user,login_required
 from werkzeug.urls import url_parse
 
 
@@ -66,8 +66,15 @@ def profile():
  
 
 @app.route('/edit_profile',methods=['GET','POST'])
+@login_required
 def edit_profile():
     form=EditProfileForm()
     if form.validate_on_submit():
-        pass
+        current_user.name=form.name.data
+        current_user.last_name=form.last_name.data
+        current_user.email=form.email.data
+        current_user.phone=form.phone.data
+        db.session.commit()
+        flash('You change your profile information')
+        return redirect(url_for('profile'))
     return render_template('edit_profile.html',title='Edit profile',form=form) 
